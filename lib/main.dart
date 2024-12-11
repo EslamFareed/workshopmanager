@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,14 +13,17 @@ import 'Core/utils/app_colors.dart';
 import 'di.dart';
 import 'firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = (FlutterErrorDetails details) {
+    // Log or handle the error details
+    print(details.exceptionAsString());
+    log(details.exceptionAsString(), name: "Flutter Error");
+  };
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseMessaging fireBaseMessaging = FirebaseMessaging.instance;
-
-  deviceToken = await fireBaseMessaging.getToken();
 
   await fireBaseMessaging.requestPermission(
     alert: true,
@@ -29,6 +34,7 @@ void main() async {
     provisional: false,
     sound: true,
   );
+  deviceToken = await fireBaseMessaging.getToken();
 
   await initDependencyInjection();
 
