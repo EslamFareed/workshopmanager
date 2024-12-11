@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "305318370335",
+    "project_id": "appify-de367",
+    "storage_bucket": "appify-de367.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305318370335:android:8e513052fa35641b3c092a",
+        "android_client_info": {
+          "package_name": "com.appify.trucker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfiRcMNGE0J37MlsEuQChADU0cXK77wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305318370335:android:e8329180c53d78733c092a",
+        "android_client_info": {
+          "package_name": "com.appifymisr.shahm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfiRcMNGE0J37MlsEuQChADU0cXK77wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305318370335:android:9a14a2db981c9e243c092a",
+        "android_client_info": {
+          "package_name": "com.example.workshop_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfiRcMNGE0J37MlsEuQChADU0cXK77wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305318370335:android:b0680b21496bdb0a3c092a",
+        "android_client_info": {
+          "package_name": "com.shahm.shahmmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfiRcMNGE0J37MlsEuQChADU0cXK77wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305318370335:android:188cdee74f7386003c092a",
+        "android_client_info": {
+          "package_name": "com.shahm.workshopmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfiRcMNGE0J37MlsEuQChADU0cXK77wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
