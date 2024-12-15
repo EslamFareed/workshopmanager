@@ -8,6 +8,7 @@ import 'package:workshopmanager/Core/widget/custom_loader_widget.dart';
 import 'package:workshopmanager/Feature/Auth/register/presentation/cubit/register_cubit.dart';
 import 'package:workshopmanager/Feature/EditWorkshopProfile/presentation/cubit/edit_workshop_profile_cubit.dart';
 import 'package:workshopmanager/Feature/location_on_map/presentation/cubit/location_on_map_cubit.dart';
+import 'package:workshopmanager/Feature/settings/presentation/cubit/settings_cubit.dart';
 import 'package:workshopmanager/di.dart';
 import 'Core/cubit/language/app_language_cubit.dart';
 import 'Feature/workshop_working_time/presentation/cubit/workshop_working_time_cubit.dart';
@@ -20,6 +21,7 @@ class WorkshopManager extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => SettingsCubit(getIt())),
         BlocProvider(
             create: (context) => AppLanguageCubit()..changeLanguage(0)),
         BlocProvider(

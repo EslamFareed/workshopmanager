@@ -22,3 +22,9 @@ final class LogoutFailureState extends SettingsState {
 
   const LogoutFailureState(this.message);
 }
+
+final class LoadingDeleteAccountState extends SettingsState {}
+
+final class ErrorDeleteAccountState extends SettingsState {}
+
+final class SuccessDeleteAccountState extends SettingsState {}

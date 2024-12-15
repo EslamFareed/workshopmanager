@@ -20,80 +20,149 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SettingsCubit(getIt()),
-      child: BlocConsumer<SettingsCubit, SettingsState>(
-        listener: (context, state) {
-          if (state is LogoutSuccessState) {
-            showToast(message: state.message);
-            context.push(Routes.login);
-          } else if (state is LogoutFailureState) {
-            showToast(message: state.message);
-          }
-        },
-        builder: (context, state) {
-          final cubit = context.read<SettingsCubit>();
-          return Scaffold(
-            appBar: appBar(
-              color: AppColors.primary,
-              title: "الاعدادات",
+    return BlocConsumer<SettingsCubit, SettingsState>(
+      listener: (context, state) {
+        if (state is LogoutSuccessState) {
+          showToast(message: state.message);
+          context.push(Routes.login);
+        } else if (state is LogoutFailureState) {
+          showToast(message: state.message);
+        }
+      },
+      builder: (context, state) {
+        final cubit = context.read<SettingsCubit>();
+        return Scaffold(
+          appBar: appBar(
+            color: AppColors.primary,
+            title: "الاعدادات",
+          ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const CustomAddWorkshopConatinerButton(),
+                  height(64),
+                  ListView.builder(
+                    itemCount: title.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return CustomListTileBody(
+                        leading: icons[index],
+                        text: title[index],
+                        onTap: () {
+                          switch (index) {
+                            case 0:
+                              context.push(Routes.manageProfile);
+                              break;
+                            case 1:
+                              context.push(Routes.addWorkshopManagers);
+                              break;
+                            case 2:
+                              context.push(Routes.managersAccount);
+                              break;
+                            case 3:
+                              context.push(Routes.manageWorkshops);
+                              break;
+                            case 4:
+                              launchUrl(Uri.parse("tel://+201098333463"));
+                              break;
+                          }
+                        },
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomAppButton(
+                    text: "تسجيل الخروج",
+                    containerColor: AppColors.redED,
+                    onPressed: () {
+                      cubit.logout();
+                    },
+                    radius: 24,
+                    width: double.infinity,
+                    borderColor: AppColors.redED,
+                  ),
+                  height(10),
+                  CustomAppButton(
+                    text: "حذف الحساب",
+                    containerColor: AppColors.white,
+                    onPressed: () {
+                      showDeleteDialog(context, cubit);
+                    },
+                    radius: 24,
+                    textColor: AppColors.redED,
+                    width: double.infinity,
+                    borderColor: AppColors.redED,
+                  ),
+                ],
+              ),
             ),
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+          ),
+        );
+      },
+    );
+  }
+
+  void showDeleteDialog(BuildContext context, cubit) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            width: MediaQuery.sizeOf(context).width * .8,
+            height: MediaQuery.sizeOf(context).height * .5,
+            padding: const EdgeInsets.all(20),
+            child: BlocConsumer<SettingsCubit, SettingsState>(
+              listener: (context, state) {
+                if (state is SuccessDeleteAccountState) {
+                  showToast(message: "تم حذف الحساب بنجاح");
+                  context.push(Routes.login);
+                }
+              },
+              builder: (context, state) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const CustomAddWorkshopConatinerButton(),
-                    height(64),
-                    ListView.builder(
-                      itemCount: title.length,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return CustomListTileBody(
-                          leading: icons[index],
-                          text: title[index],
-                          onTap: () {
-                            switch (index) {
-                              case 0:
-                                context.push(Routes.manageProfile);
-                                break;
-                              case 1:
-                                context.push(Routes.addWorkshopManagers);
-                                break;
-                              case 2:
-                                context.push(Routes.managersAccount);
-                                break;
-                              case 3:
-                                context.push(Routes.manageWorkshops);
-                                break;
-                              case 4:
-                                launchUrl(Uri.parse("tel://+201098333463"));
-                                break;
-                            }
-                          },
-                        );
-                      },
+                    const Text(
+                      "هل انت متأكد من حذف الحساب ؟؟",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 20),
                     CustomAppButton(
-                      text: "تسجيل الخروج",
-                      containerColor: AppColors.redED,
+                      text: "الغاء",
+                      containerColor: AppColors.primary,
                       onPressed: () {
-                        cubit.logout();
+                        Navigator.pop(context);
                       },
                       radius: 24,
+                      textColor: AppColors.white,
                       width: double.infinity,
-                      borderColor: AppColors.redED,
+                      borderColor: AppColors.primary,
                     ),
-                    height(60),
+                    const SizedBox(height: 20),
+                    state is LoadingDeleteAccountState
+                        ? const Center(child: CircularProgressIndicator())
+                        : CustomAppButton(
+                            text: "حذف الحساب",
+                            containerColor: AppColors.white,
+                            onPressed: () {
+                              cubit.deleteAccount();
+                            },
+                            radius: 24,
+                            textColor: AppColors.redED,
+                            width: double.infinity,
+                            borderColor: AppColors.redED,
+                          ),
                   ],
-                ),
-              ),
+                );
+              },
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

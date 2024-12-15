@@ -65,4 +65,6 @@ class EndPoints {
 
   static String changeOrderStatus(String id) =>
       "workshop-manager/orders/update-status/$id";
+
+  static String deleteAccountEndPoint = "client/my-profile/delete";
 }
