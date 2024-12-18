@@ -31,10 +31,10 @@ class _SuggestedServiceScreenState extends State<SuggestedServiceScreen> {
       child: BlocConsumer<SuggestedServiceCubit, SuggestedServiceState>(
         listener: (context, state) {
           if (state is SuggestedSuccessState) {
-            showToast(message: "Added successfully");
+            showSuccessToast(message: "Added successfully");
             context.pop();
           } else if (state is SuggestedFailureState) {
-            showToast(message: state.errorMessage);
+            showErrorToast(message: state.errorMessage);
           }
         },
         builder: (context, state) {

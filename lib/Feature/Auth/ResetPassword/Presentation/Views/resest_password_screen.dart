@@ -28,10 +28,10 @@ class ResestPasswordScreen extends StatelessWidget {
           if (state is ResetpasswordLoadingState) {
             const CustomLoaderWidget();
           } else if (state is ResetpasswordSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
             context.push(Routes.login);
           } else if (state is ResetpasswordFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

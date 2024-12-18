@@ -89,7 +89,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     if ((taxFile != null || companyRegisteration != null)) {
       register();
     } else {
-      showToast(message: "please select the registration images");
+      showErrorToast(message: "please select the registration images");
     }
   }
 

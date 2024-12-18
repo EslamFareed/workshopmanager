@@ -30,10 +30,10 @@ class ShowManagerInfoScreen extends StatelessWidget {
       child: BlocConsumer<ShowManagerInfoCubit, ShowManagerInfoState>(
         listener: (context, state) {
           if (state is UpdateManagerSuccessState) {
-            showToast(message: "Updated Successfully");
+            showSuccessToast(message: "Updated Successfully");
             context.push(Routes.managersAccount);
           } else if (state is UpdateManagerFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

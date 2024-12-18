@@ -25,10 +25,10 @@ class EditWorkshopProfileScreen extends StatelessWidget {
     return BlocConsumer<EditWorkshopProfileCubit, EditWorkshopProfileState>(
       listener: (context, state) {
         if (state is EditWorkshopProfilSuccessState) {
-          showToast(message: "Updated Successfully");
+          showSuccessToast(message: "Updated Successfully");
           context.push(Routes.navbar);
         } else if (state is EditWorkshopProfileFailureState) {
-          showToast(message: state.message);
+          showErrorToast(message: state.message);
         }
       },
       builder: (context, state) {

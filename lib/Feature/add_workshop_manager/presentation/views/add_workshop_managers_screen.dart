@@ -30,10 +30,10 @@ class AddWorkshopManagersScreen extends StatelessWidget {
       child: BlocConsumer<AddWorkshopManagerCubit, AddWorkshopManagerState>(
         listener: (context, state) {
           if (state is AddWorkshopManagerSuccessState) {
-            showToast(message: "Add Manager Successfully");
+            showSuccessToast(message: "Add Manager Successfully");
             context.push(Routes.managersAccount);
           } else if (state is AddWorkshopManagerFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           } else if (state is AddWorkshopManagerLoadingState) {
             const Center(
               child: CustomLoaderWidget(),

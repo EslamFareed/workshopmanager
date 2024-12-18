@@ -23,10 +23,10 @@ class RegisterScreen extends StatelessWidget {
         if (state is RegisterLoadingState) {
           const CustomLoaderWidget();
         } else if (state is RegisterSuccessState) {
-          showToast(message: "SignUp Successfully");
+          showSuccessToast(message: "SignUp Successfully");
           context.push(Routes.navbar);
         } else if (state is RegisterFailureState) {
-          showToast(message: state.message);
+          showErrorToast(message: state.message);
         }
       }, builder: (context, state) {
         final cubit = context.read<RegisterCubit>();

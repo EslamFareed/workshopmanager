@@ -32,10 +32,10 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginLoadedState) {
             const CustomLoaderWidget();
           } else if (state is LoginSuccessState) {
-            showToast(message: "Login Successfully");
+            showSuccessToast(message: "Login Successfully");
             context.push(Routes.navbar);
           } else if (state is LoginFauilreState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

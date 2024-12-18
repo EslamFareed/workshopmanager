@@ -27,12 +27,12 @@ class ForgetPasswordScreen extends StatelessWidget {
           if (state is ForgetPasswordLoadingState) {
             const CustomLoaderWidget();
           } else if (state is ForgetPasswordSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
             context.pushNamed(Routes.otp, pathParameters: {
               'phone': context.read<ForgetPasswordCubit>().controller.text,
             });
           } else if (state is ForgetPasswordFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

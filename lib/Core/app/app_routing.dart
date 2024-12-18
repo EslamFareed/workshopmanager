@@ -24,6 +24,7 @@ import 'package:workshopmanager/Feature/scanner_page/presentation/views/scanner_
 import 'package:workshopmanager/Feature/show_manager_account/presentation/views/show_manager_info_screen.dart';
 import 'package:workshopmanager/Feature/splash/presentation/views/splash_screen.dart';
 import 'package:workshopmanager/Feature/suggested_service/presentation/views/suggested_service_screen.dart';
+import 'package:workshopmanager/Feature/welcome/welcome_screen.dart';
 import 'package:workshopmanager/Feature/workshop_orders/presentation/views/workshops_orders_screen.dart';
 import 'package:workshopmanager/Feature/workshop_working_time/presentation/views/workshop_working_time_screen.dart';
 
@@ -32,6 +33,10 @@ import '../../Feature/IntroScreen/presentation/views/intro_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: [
+    GoRoute(
+      path: Routes.welcome,
+      builder: (context, state) => WelcomeScreen(),
+    ),
     GoRoute(
       path: Routes.splash,
       builder: (context, state) => const SplashScreen(),

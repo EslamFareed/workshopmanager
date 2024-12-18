@@ -36,15 +36,15 @@ class OrderDetailsScreen extends StatelessWidget {
       child: BlocConsumer<OrderDetailsCubit, OrderDetailsState>(
           listener: (context, state) {
         if (state is SuccessCancelOrderState) {
-          showToast(message: "Order Cancelled Successfully");
+          showSuccessToast(message: "Order Cancelled Successfully");
           Navigator.pop(context);
           Navigator.pop(context);
           context.read<OrderDetailsCubit>().orderDetails(id);
           // context.push(Routes.workshopOrders);
         } else if (state is CancelOrderFailureState) {
-          showToast(message: state.message);
+          showErrorToast(message: state.message);
         } else if (state is SuccessFinishOrderState) {
-          showToast(message: "Order Finished Successfully");
+          showSuccessToast(message: "Order Finished Successfully");
           context.read<OrderDetailsCubit>().orderDetails(id);
         }
         // else if (state is CancelServiceSuccessState) {

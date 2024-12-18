@@ -25,10 +25,10 @@ class AddWorkShopScreen extends StatelessWidget {
       child: BlocConsumer<AddWorkShopCubit, AddWorkShopState>(
         listener: (context, state) {
           if (state is AddWorkShopSuccessState) {
-            showToast(message: "تم اضافة مركز صيانة ");
+            showSuccessToast(message: "تم اضافة مركز صيانة ");
             context.push(Routes.navbar);
           } else if (state is AddWorkShopFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

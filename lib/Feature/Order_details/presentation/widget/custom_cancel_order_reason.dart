@@ -24,7 +24,7 @@ Future<void> cancellationReason({
             child: BlocConsumer<OrderDetailsCubit, OrderDetailsState>(
               listener: (context, state) {
                 if (state is SuccessCancelOrderState) {
-                  showToast(message: "Order Cancelled Successfully");
+                  showSuccessToast(message: "Order Cancelled Successfully");
                   Navigator.pop(context);
                   Navigator.pop(context);
                   // context.push(Routes.workshopOrders);

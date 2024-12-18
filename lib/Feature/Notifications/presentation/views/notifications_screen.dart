@@ -22,15 +22,15 @@ class NotificationsScreen extends StatelessWidget {
       child: BlocConsumer<NotificationsCubit, NotificationsState>(
         listener: (context, state) {
           if (state is DeleteNotificationsSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
             context.read<NotificationsCubit>().notification();
           } else if (state is ChangeNotificationsStatusSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
           } else if (state is ChangeNotificationsStatusSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
             context.read<NotificationsCubit>().notification();
           } else if (state is ChangeNotificationsStatusFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

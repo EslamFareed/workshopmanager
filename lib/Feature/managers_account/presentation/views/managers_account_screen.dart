@@ -22,14 +22,14 @@ class ManagersAccountScreen extends StatelessWidget {
       child: BlocConsumer<ManagersAccountsCubit, ManagersAccountsState>(
         listener: (context, state) {
           if (state is DeleteEmployerFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           } else if (state is DeleteEmployerSuccessState) {
-            showToast(message: state.message);
+            showSuccessToast(message: state.message);
             context.read<ManagersAccountsCubit>().managers();
           } else if (state is ActiveEmployerFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           } else if (state is ActiveEmployerSuccessState) {
-            showToast(message: state.meesage);
+            showSuccessToast(message: state.meesage);
           }
         },
         builder: (context, state) {

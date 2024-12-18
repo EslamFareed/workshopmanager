@@ -64,9 +64,9 @@ class CustomWorkshopsSettingListViewBody extends StatelessWidget {
                       BlocConsumer<ManageWorkshopsCubit, ManageWorkshopsState>(
                     listener: (context, state) {
                       if (state is ManageWorkshopsSuccessState) {
-                        showToast(message: state.message);
+                        showSuccessToast(message: state.message);
                       } else if (state is ManageWorkshopsFailureState) {
-                        showToast(message: state.message);
+                        showErrorToast(message: state.message);
                       }
                     },
                     builder: (context, state) {

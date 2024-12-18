@@ -38,10 +38,10 @@ class ScannerScreen extends StatelessWidget {
                       .toString(),
                 );
           } else if (state is ScannerSuccessState) {
-            showToast(message: "Change Order Status Successfully");
+            showSuccessToast(message: "Change Order Status Successfully");
             context.pushReplacement(Routes.done);
           } else if (state is ScannerFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

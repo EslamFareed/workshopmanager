@@ -1,6 +1,7 @@
 class Routes {
   static const String splash = '/';
   static const String intro = '/intro_screen';
+  static const String welcome = '/welcomescreen';
   static const String login = '/loginscreen';
   static const String forgetPassword = "/forgetpassword";
   static const String otp = "/otpscreen";

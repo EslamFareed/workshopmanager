@@ -26,10 +26,10 @@ class ManageProfileScreen extends StatelessWidget {
       child: BlocConsumer<ManageProfileCubit, ManageProfileState>(
         listener: (context, state) {
           if (state is ManageProfileSuccessState) {
-            showToast(message: "Updated Successflly");
+            showSuccessToast(message: "Updated Successflly");
             context.push(Routes.navbar);
           } else if (state is ManageProfileFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

@@ -24,10 +24,10 @@ class ManageWorkshopScreen extends StatelessWidget {
       child: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {
           if (state is DeletedSuccessState) {
-            showToast(message: state.deletedSuccess);
+            showSuccessToast(message: state.deletedSuccess);
             context.read<HomeCubit>().workshops();
           } else if (state is DeleteFailureState) {
-            showToast(message: state.failureMessage);
+            showErrorToast(message: state.failureMessage);
           }
         },
         builder: (context, state) {

@@ -28,9 +28,9 @@ class OtpScreen extends StatelessWidget {
           if (state is OtpLoadingstate) {
             const CustomLoaderWidget();
           } else if (state is OtpFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           } else if (state is OtpSuccessState) {
-            showToast(message: state.model.message!);
+            showSuccessToast(message: state.model.message!);
             context.push(Routes.resetPassword, extra: state.model);
           }
         },

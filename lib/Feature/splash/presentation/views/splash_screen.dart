@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Future.delayed(const Duration(seconds: 8), () async {
         if (mounted) {
           if (token == null || token == "") {
-            context.pushReplacement(Routes.login);
+            context.pushReplacement(Routes.welcome);
           } else {
             context.pushReplacement(Routes.navbar);
           }

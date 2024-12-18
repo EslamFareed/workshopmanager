@@ -23,10 +23,10 @@ class SettingsScreen extends StatelessWidget {
     return BlocConsumer<SettingsCubit, SettingsState>(
       listener: (context, state) {
         if (state is LogoutSuccessState) {
-          showToast(message: state.message);
+          showSuccessToast(message: state.message);
           context.push(Routes.login);
         } else if (state is LogoutFailureState) {
-          showToast(message: state.message);
+          showErrorToast(message: state.message);
         }
       },
       builder: (context, state) {
@@ -117,7 +117,7 @@ class SettingsScreen extends StatelessWidget {
             child: BlocConsumer<SettingsCubit, SettingsState>(
               listener: (context, state) {
                 if (state is SuccessDeleteAccountState) {
-                  showToast(message: "تم حذف الحساب بنجاح");
+                  showSuccessToast(message: "تم حذف الحساب بنجاح");
                   context.push(Routes.login);
                 }
               },

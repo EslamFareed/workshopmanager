@@ -24,12 +24,12 @@ class CustomAddServiceFileds extends StatelessWidget {
       child: BlocConsumer<AddServiceCubit, AddServiceState>(
         listener: (context, state) {
           if (state is AddServiceSuccessState) {
-            showToast(message: "تم اضافة خدمة بنجاح");
+            showSuccessToast(message: "تم اضافة خدمة بنجاح");
             context.pushNamed(Routes.addService, pathParameters: {
               "id": id.toString(),
             });
           } else if (state is AddServiceFailureState) {
-            showToast(message: state.message);
+            showErrorToast(message: state.message);
           }
         },
         builder: (context, state) {

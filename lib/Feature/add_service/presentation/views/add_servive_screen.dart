@@ -92,12 +92,12 @@ class AddServiveScreen extends StatelessWidget {
                                                   listener: (context, statte) {
                                                     if (statte
                                                         is ActiveServiceSuccessState) {
-                                                      showToast(
+                                                      showSuccessToast(
                                                           message:
                                                               statte.message);
                                                     } else if (statte
                                                         is AddServiceFailureState) {
-                                                      showToast(
+                                                      showErrorToast(
                                                           message:
                                                               statte.message);
                                                     }
