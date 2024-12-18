@@ -28,7 +28,11 @@ Widget securityInfromationWidget(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const CustomArrowBack(),
+                CustomArrowBack(
+                  onTap: () {
+                    cubit.pageDecrement();
+                  },
+                ),
                 const CustomAppText(
                   text: "بدء الاستخدام",
                   color: AppColors.primary,

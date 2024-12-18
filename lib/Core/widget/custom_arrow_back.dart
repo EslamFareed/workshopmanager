@@ -4,8 +4,8 @@ import 'package:workshopmanager/Core/extensions/extensions.dart';
 import '../utils/app_colors.dart';
 
 class CustomArrowBack extends StatelessWidget {
-  const CustomArrowBack({super.key});
-
+  const CustomArrowBack({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +25,9 @@ class CustomArrowBack extends StatelessWidget {
         Icons.arrow_back,
         color: AppColors.primary,
       ),
-    ).onTap(() {
-      context.pop();
-    });
+    ).onTap(onTap ??
+        () {
+          context.pop();
+        });
   }
 }
