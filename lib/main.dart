@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,11 +13,12 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterError.onError = (FlutterErrorDetails details) {
-    // Log or handle the error details
-    print(details.exceptionAsString());
-    log(details.exceptionAsString(), name: "Flutter Error");
-  };
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //   // Log or handle the error details
+  //   print(details.exceptionAsString());
+  //   log(details.exceptionAsString(), name: "Flutter Error");
+  // };
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
