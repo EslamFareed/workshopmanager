@@ -54,7 +54,8 @@ class AboutWorkshopScreen extends StatelessWidget {
                             reviewCount:
                                 state.workshop.reviews!.length.toString(),
                             category:
-                                state.workshop.services!.first.enName ?? "",
+                                state.workshop.services!.firstOrNull?.enName ??
+                                    "",
                             workshopName: state.workshop.name!,
                             location: state.workshop.government!.arName!,
                             district: state.workshop.center!.arName!,
