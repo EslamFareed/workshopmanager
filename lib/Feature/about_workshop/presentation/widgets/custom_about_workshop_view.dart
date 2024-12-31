@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:workshopmanager/Core/constant/app_sized.dart';
 import 'package:workshopmanager/Core/utils/app_colors.dart';
 import 'package:workshopmanager/Core/widget/custom_app_text.dart';
-import 'package:workshopmanager/Core/widget/custom_container_button.dart';
-import 'custom_icon_with_container.dart';
 
 class CustomAboutWorkshopView extends StatelessWidget {
   final String description;
